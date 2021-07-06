@@ -12,20 +12,20 @@ User.destroy_all
 User.create!([{
     name: "Tamara",
     username: "Tamara",
-    password: "Password",
-    password_confirmation: "Password"
+    password: "Password1",
+    password_confirmation: "Password1"
 },
 {
     name: "Omar",
     username: "Omar",
-    password: "Password.",
-    password_confirmation: "Password"
+    password: "Password2",
+    password_confirmation: "Password2"
 },
 {
     name: "Amari",
     username: "Amari",
-    password: "Password",
-    password_confirmation: "Password"
+    password: "Password3",
+    password_confirmation: "Password3"
 }])
 
 Book.destroy_all
@@ -36,9 +36,8 @@ Book.create!([{
     genre: "Young Adult",
     is_read: false,
     is_unread: true,
-    book_cover: "",
-    user_id: 1,
-    review_id: 1
+    book_cover: "https://drive.google.com/file/d/1j-lwmA78uzVcpE3ngardJK0X7hUa7BfZ/view?usp=sharing",
+    user_id: 1
 },
 {
     title: "The Silent Corner",
@@ -46,9 +45,8 @@ Book.create!([{
     genre: "Fiction",
     is_read: false,
     is_unread: true,
-    book_cover: "",
-    user_id: 2,
-    review_id: 1
+    book_cover: "https://drive.google.com/file/d/1bu07GheILms3euljowSaaGtZjSwN16rN/view?usp=sharing",
+    user_id: 2
 },
 {
     title: "The Mysterious Island",
@@ -56,31 +54,6 @@ Book.create!([{
     genre: "Science Fiction",
     is_read: true,
     is_unread: false,
-    book_cover: "",
-    user_id: 3,
-    review_id: 1
-}])
-
-Review.destroy_all
-
-Review.create!([{
-    title: "Best Book I’ve read in YEARS!",
-    content: "Schlitz coloring book green juice, tofu subway tile freegan fingerstache waistcoat shabby chic. Twee lumbersexual organic iPhone, 3 wolf moon asymmetrical schlitz sartorial flannel deep v. Single-origin coffee kogi sartorial small batch typewriter tilde tofu banjo XOXO edison bulb retro unicorn pickled tattooed actually. Offal four dollar toast humblebrag etsy wolf YOLO migas quinoa chambray.",
-    rating: 5,
-    user_id: 1,
-    book_id: 1
-},
-{
-    title: "I wanted to at least like it!",
-    content: "Im baby migas hot chicken blue bottle YOLO succulents. Vexillologist fashion axe trust fund cornhole chartreuse waistcoat taxidermy sartorial blog flannel thundercats. Kombucha cred 3 wolf moon lo-fi. 90s flannel subway tile 3 wolf moon tilde snackwave messenger bag readymade edison bulb offal PBR&B.",
-    rating: 1,
-    user_id: 2,
-    book_id: 2
-},
-{
-    title: "What a cliffhanger...",
-    content: "Echo park pok pok sustainable lo-fi, gentrify live-edge pabst normcore drinking vinegar ugh migas hell of taxidermy. Cliche taxidermy flexitarian 8-bit, ramps pabst glossier retro edison bulb. Ugh messenger bag single-origin coffee cray taiyaki. Quinoa photo booth affogato man braid williamsburg ramps artisan, man bun kinfolk shabby chic. Disrupt tattooed fam, iceland green juice adaptogen mixtape seitan lumbersexual polaroid kinfolk post-ironic meditation. Portland letterpress butcher vegan fingerstache readymade. Chambray pitchfork everyday carry, godard DIY lomo portland lo-fi you probably havent heard of them.",
-    rating: 5,
-    user_id: 3,
-    book_id: 3
+    book_cover: "https://drive.google.com/file/d/1IWH6iVFPJ7XXVdJB6ZrI_PfYU-vxvBEz/view?usp=sharing",
+    user_id: 3
 }])
