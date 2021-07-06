@@ -30,3 +30,4 @@ class UsersController < ApplicationController
         params.permit(:name, :username, :password, :password_confirmation)
     end
 end
+   
