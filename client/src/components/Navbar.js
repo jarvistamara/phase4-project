@@ -13,6 +13,7 @@ const Navbar = (props) => {
     } else {
     return (
         <div>
+            <h3>TESTING HEROKU</h3>
             <Link to='/signup'><button>SIGNUP</button></Link> 
             <Link to='/login'><button>LOGIN</button></Link>
         </div>
