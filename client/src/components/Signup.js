@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Signup = () => {
+    
+
+
+
+
+
+
     return (
         <div>
             <h3>SIGNUP</h3>
