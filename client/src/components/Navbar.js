@@ -1,13 +1,13 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
     
     if (props.logged_In) {
         return (
             <div>
-                <h2>Hey, {props.user.name}! Welcome to your personal Library.</h2>
-                <Link to='/signup'><button>SIGNUP</button></Link>
+                <h2>Hey, {props.user}! Welcome to your personal Library.</h2>
+                <Link to='/signout'><button>SIGNOUT</button></Link>
             </div>
         )
     } else {
