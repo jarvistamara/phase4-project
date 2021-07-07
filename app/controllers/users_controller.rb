@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     def create
         # get the user information from the STRONG PARAMS
         user = User.create!(user_params)
+
         # .valid? runs validations in your user model
         if user.valid?
             # this is the exact moment of login
