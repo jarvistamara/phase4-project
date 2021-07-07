@@ -7,7 +7,7 @@ const Navbar = (props) => {
         return (
             <div>
                 <h2>Hey, {props.user.name}! Welcome to your Personal Library.</h2>
-                <Link to='/signout'><button>SIGNOUT</button></Link>
+                <Link to='/logout'><button onClick={props.userLogout}>SIGN OUT</button></Link>
             </div>
         )
     } else {
@@ -15,7 +15,7 @@ const Navbar = (props) => {
         <div>
             <h2>PERSONAL BOOK LIBRARY APP.</h2>
             <h4>Please Login To View Your Books.</h4>
-            <Link to='/signup'><button>SIGNUP</button></Link> 
+            <Link to='/signup'><button>SIGN UP</button></Link> 
             <Link to='/login'><button>LOGIN</button></Link>
         </div>
     )

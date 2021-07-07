@@ -4,6 +4,7 @@ import './App.css';
 import Home from './containers/Home'
 import NavBar from './components/Navbar'
 import Signup from './components/Signup';
+import Login from './components/Login';
 
 
 function App(props) {
@@ -31,21 +32,21 @@ function App(props) {
   }
 // Log out user and set logged in to false, reset set user as well
   const userLogout = () => {
-    const headersConfig = () => { method: 'DELETE' }
-    fetch('/logout', headersConfig)
+    fetch('/logout', { method: 'DELETE' })
     .then(() => {
       setLoggedIn(false)
       setUser({})
     })
-    historu.push('/')
+    history.push('/')
   }
 
   return (
     <div className="App">
-      <NavBar user={user} loggedIn={loggedIn}/>
+      <NavBar user={user} loggedIn={loggedIn} userLogout={userLogout}/>
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/signup'  render={routerProps => <Signup {...routerProps} userLogin={userLogin}/>}/>
+        <Route exact path='/login'  render={routerProps => <Login {...routerProps} userLogin={userLogin}/>}/>
       </Switch>
     </div>
   );
