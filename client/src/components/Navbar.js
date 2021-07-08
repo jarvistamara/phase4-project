@@ -8,7 +8,6 @@ const Navbar = (props) => {
             <div>
                 <h2>Hey, {props.user.name}! Welcome to your Personal Library.</h2>
                 <Link to='/logout'><button onClick={props.userLogout}>SIGN OUT</button></Link>
-                <Link to='/books'><button onClick={props.userLogout}>SIGN OUT</button></Link>
 
             </div>
         )

@@ -3,35 +3,25 @@ class BooksController < ApplicationController
 
     def index
         user = User.find_by(id: session[:user_id])
-        if user
-            books = user.books
-            render json: books
+        books = user.books
+        render json: books
     end
 
     def create
         user = User.find_by(id: session[:user_id])
-        if user
-            book = user.books.create(book_params)
-            if book.valid?
-                render json: book
-            else
-                render json: { errors: book.errors.full_messages }, status: :unprocessable_entity
-            end
-        else
-            render json: { errors: [Unauthorized] }, status: :unauthorized
-        end
+        book = user.books.create(book_params)
+        render json: book
+        
     end
-
-
 
     private
 
-    def authorize
-        return render json: { error: "Unauthorized"}, status: :unauthorized unless session.include? :user_id
+    def book_params
+        params.permit(:title, :author, :genre, :is_read, :is_unread, :book_cover)
     end
 
-    def book_params
-        params.permit(:title, :content, :rating)
+    def authorize
+        return render json: { error: "Unauthorized"}, status: :unauthorized unless session.include? :user_id
     end
 
 end

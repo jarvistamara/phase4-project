@@ -1,9 +1,11 @@
 import React from 'react'
+import Books from './Books'
 
 const Home = () => {
     return (
         <div>
-            <h1>Personal Library</h1>
+            <h4>home</h4>
+            <Books />
         </div>
     )
 }

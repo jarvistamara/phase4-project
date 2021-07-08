@@ -15,6 +15,7 @@ const Books = () => {
                 if (data.error) {
                     setError(data.error)
                 } else {
+                    console.log(data)
                     setBooks(data)
                 }
             } else {
@@ -37,7 +38,7 @@ const Books = () => {
         setToggleForm(false)
     }
 
-    const booksList = Books.map(b => <BookLink key={b.id} book={b}/>)
+    const booksList = Books.map(book => <BookLink key={book.id} book={book}/>)
 
     if (error === '') {
     return (
