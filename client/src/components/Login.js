@@ -7,15 +7,14 @@ const Login = ({userLogin}) => {
     const handleSubmit = (e) => {
         // prevents a sending of a post request on submit
         e.preventDefault()
-        const headersConfig = {method: "POST",
+        fetch('/login', {method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
             username: username,
-            password: password,
-        })}
-        fetch('/login', headersConfig)
+            password: password
+        })})
         .then(res => res.json())
         .then(user => userLogin(user))
     }

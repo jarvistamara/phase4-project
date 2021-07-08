@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
 #  SIGNUP - FRONTEND
     def create
         # get the user information from the STRONG PARAMS

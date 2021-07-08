@@ -14,7 +14,6 @@ function App(props) {
 
 // in order to keep user
   useEffect(() => {
-    const headers = {}
     fetch('/me')
     .then(res => { if (res.ok) { res.json() 
         .then(user => {
