@@ -11,20 +11,14 @@ const BookForm = ({addNewBook}) => {
     const handleSubmit = (e) => {
         // prevents a sending of a post request on submit
         e.preventDefault()
-        fetch('/login', {method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
+        addNewBook({
             title: title,
             author: author,
             genre: genre,
-            isRead: is_read,
-            isUnread: is_unread,
-            bookCover: book_cover
-        })})
-        .then(res => res.json())
-        .then(user => userLogin(user))
+            isRead: isRead,
+            isUnread: isUnread,
+            bookCover: bookCover
+        })
     }
 
     return (
@@ -41,7 +35,7 @@ const BookForm = ({addNewBook}) => {
                 <br/><br/>
                 <label>Have you read this book?</label>
                 <select id='isRead' onChange={(e) => {
-                    if (value === true) {
+                    if (e.target.value === true) {
                         setIsRead(e.target.value)
                     } else {
                         setIsUnread(e.target.value)

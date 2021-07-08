@@ -10,12 +10,12 @@ const Books = () => {
     useEffect(() => {
         fetch('/books')
         .then(res => res.json())
-        .then(b => {
-            if (b){
-                if (b.error) {
-                    setError(b.error)
+        .then(data => {
+            if (data){
+                if (data.error) {
+                    setError(data.error)
                 } else {
-                    setBooks(b)
+                    setBooks(data)
                 }
             } else {
                 setError("Not Authorized")
@@ -30,30 +30,32 @@ const Books = () => {
             body: JSON.stringify(book)
         })
         .then(res => res.json())
-        .then(b => {
-            setBooks([...Books, b])
-            setToggleForm(false)
+        .then(data => {
+            setBooks([...Books, data])
+            
         })
+        setToggleForm(false)
     }
 
-    const booksList = books.map(b => <BookLink key={b.id} book={b}/>)
+    const booksList = Books.map(b => <BookLink key={b.id} book={b}/>)
 
     if (error === '') {
-
     return (
         <div>
+            <h2>Your Books:</h2>
+            <p>Click one a Book below to view Book details.</p>
             <ul>
-                {booksList}
-                {toogleForm ? <BookForm addNewBook={addNewBook} /> : 
-                <button onClick={() => setToggleForm(true)}>Add New Book</button>}
+                {booksList} 
             </ul>
+            {toggleForm ? <BookForm addNewBook={addNewBook} /> : 
+                <button onClick={() => setToggleForm(true)}>Add A New Book</button>}
         </div>
     )
     } else {
         return (
             <div>
                 <h3>Not Authorized</h3>
-                <h4>Please Sign up or Login</h4>
+                <h4>Please Sign up or Login!</h4>
             </div>
         )
     }
