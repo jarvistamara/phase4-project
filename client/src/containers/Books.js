@@ -32,7 +32,6 @@ const Books = () => {
         .then(res => res.json())
         .then(data => {
             setBooks([...books, data])
-            
         })
         setToggleForm(false)
     }
@@ -44,7 +43,7 @@ const Books = () => {
             <div>
                 <h2>Your Books:</h2>
                 <p>Click on a Book below to view Book details.</p>
-                <ol><h4>{bookList} </h4></ol>
+                <ul><h4>{bookList} </h4></ul>
                 {toggleForm ? <BookForm addNewBook={addNewBook} /> : <button onClick={() => setToggleForm(true)}>Add A New Book</button>}
             </div>
         )

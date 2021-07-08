@@ -76,3 +76,8 @@ a:visited {
 a:hover {
   color: #000;
 }
+
+.book-cover {
+  width: 314px;
+  height: 475px
+}
