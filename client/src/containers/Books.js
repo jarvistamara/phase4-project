@@ -11,7 +11,7 @@ const Books = () => {
         fetch('/books')
         .then(res => res.json())
         .then(data => {
-            if (data){
+            if (data) {
                 if (data.error) {
                     setError(data.error)
                 } else {
@@ -22,6 +22,7 @@ const Books = () => {
                 setError("Not Authorized")
             }
         })
+        console.log(Books)
     }, [])
 
     const addNewBook = (book) => {
@@ -41,24 +42,21 @@ const Books = () => {
     const booksList = Books.map(book => <BookLink key={book.id} book={book}/>)
 
     if (error === '') {
-    return (
-        <div>
-            <h2>Your Books:</h2>
-            <p>Click one a Book below to view Book details.</p>
-            <ul>
-                {booksList} 
-            </ul>
-            {toggleForm ? <BookForm addNewBook={addNewBook} /> : 
-                <button onClick={() => setToggleForm(true)}>Add A New Book</button>}
-        </div>
-    )
-    } else {
         return (
             <div>
-                <h3>Not Authorized</h3>
-                <h4>Please Sign up or Login!</h4>
+                <h2>Your Books:</h2>
+                <p>Click on a Book below to view Book details.</p>
+                <ol><h4>{booksList} </h4></ol>
+                {toggleForm ? <BookForm addNewBook={addNewBook} /> : <button onClick={() => setToggleForm(true)}>Add A New Book</button>}
             </div>
         )
-    }
+        } else {
+            return (
+                <div>
+                    <h3>Not Authorized</h3>
+                    <h4>Please Sign up or Login!</h4>
+                </div>
+            )
+        }
 }
 export default Books
