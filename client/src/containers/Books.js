@@ -3,7 +3,7 @@ import BookForm from '../components/BookForm'
 import BookLink from '../components/BookLink'
 
 const Books = () => {
-    const [Books, setBooks] = useState([])
+    const [books, setBooks] = useState([])
     const [error, setError] = useState('')
     const [toggleForm, setToggleForm] = useState(false)
 
@@ -15,14 +15,12 @@ const Books = () => {
                 if (data.error) {
                     setError(data.error)
                 } else {
-                    console.log(data)
                     setBooks(data)
                 }
             } else {
                 setError("Not Authorized")
             }
         })
-        console.log(Books)
     }, [])
 
     const addNewBook = (book) => {
@@ -33,20 +31,20 @@ const Books = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setBooks([...Books, data])
+            setBooks([...books, data])
             
         })
         setToggleForm(false)
     }
 
-    const booksList = Books.map(book => <BookLink key={book.id} book={book}/>)
+    const bookList = books.map(b => <BookLink key={b.id} b={b}/>)
 
     if (error === '') {
         return (
             <div>
                 <h2>Your Books:</h2>
                 <p>Click on a Book below to view Book details.</p>
-                <ol><h4>{booksList} </h4></ol>
+                <ol><h4>{bookList} </h4></ol>
                 {toggleForm ? <BookForm addNewBook={addNewBook} /> : <button onClick={() => setToggleForm(true)}>Add A New Book</button>}
             </div>
         )

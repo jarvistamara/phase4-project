@@ -3,8 +3,8 @@ class User < ApplicationRecord
     has_many :books
 
     validates :name, presence: true
-    validates :username, uniqueness: true, presence: true
-    validates :password, length: { in: 5..10 }, presence: true, confirmation: true
+    validates :username, presence: true
+    validates :password, presence: true, confirmation: true
     validate :password_contains_number
     
     def password_contains_number

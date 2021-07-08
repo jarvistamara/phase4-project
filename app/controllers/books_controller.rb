@@ -2,11 +2,7 @@ class BooksController < ApplicationController
     before_action :authorize
 
     def index
-        books = Book.all
-        render json: books
-    end
-
-    def show
+        # byebug
         user = User.find_by(id: session[:user_id])
         books = user.books
         render json: books

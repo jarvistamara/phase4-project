@@ -1,5 +1,18 @@
 .App {
   text-align: center;
+  width: 800px;
+  height: 900px;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  border-radius: 25px;
 }
 
 .App-logo {
@@ -35,4 +48,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  color: #fff;
+  padding: 40px;
+}
+
+h2, h3, p {
+  color: #fff;
+}
+
+h4 {
+  color:orange
+}
+
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: #000;
 }
