@@ -4,9 +4,8 @@ const BookForm = ({addNewBook}) => {
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [genre, setGenre] = useState('')
-    const [isRead, setIsRead] = useState(false)
-    const [isUnread, setIsUnread] = useState(false)
-    const [bookCover, setBookCover] = useState('')
+    const [description, setDescription] = useState('')
+    const [summary, setSummary] = useState('')
 
     const handleSubmit = (e) => {
         // prevents a sending of a post request on submit
@@ -15,9 +14,8 @@ const BookForm = ({addNewBook}) => {
             title: title,
             author: author,
             genre: genre,
-            isRead: isRead,
-            isUnread: isUnread,
-            bookCover: bookCover
+            description: description,
+            summary: summary
         })
     }
 
@@ -33,20 +31,11 @@ const BookForm = ({addNewBook}) => {
                 <label>Genre:</label>
                 <input type='text' id='genre' value={genre} onChange={(e) => setGenre(e.target.value)}/>
                 <br/><br/>
-                <label>Have you read this book?</label>
-                <select id='isRead' onChange={(e) => {
-                    if (e.target.value === true) {
-                        setIsRead(e.target.value)
-                    } else {
-                        setIsUnread(e.target.value)
-                    }
-                }} >
-                    <option value={true}>Yes</option>
-                    <option value={false}>No</option>                    
-                </select>
+                <label>Description:</label>
+                <input type='text' id='description' value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <br/><br/>
-                <label>Book Cover:</label>
-                <input type='text' id='bookCover' value={bookCover} onChange={(e) => setBookCover(e.target.value)}/>
+                <label>Summary:</label>
+                <input type='text' id='summary' value={summary} onChange={(e) => setSummary(e.target.value)}/>
                 <br/><br/>
                 <input type='submit' />
             </form>

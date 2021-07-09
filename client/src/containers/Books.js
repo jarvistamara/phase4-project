@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BookForm from '../components/BookForm'
-import BookLink from '../components/BookLink'
+import BookCard from '../components/BookCard'
 
 const Books = () => {
     const [books, setBooks] = useState([])
@@ -9,16 +9,12 @@ const Books = () => {
 
     useEffect(() => {
         fetch('/books')
-        .then(res => res.json())
-        .then(data => {
-            if (data) {
-                if (data.error) {
-                    setError(data.error)
-                } else {
-                    setBooks(data)
-                }
-            } else {
-                setError("Not Authorized")
+        .then((res) => {
+            if (res.ok) {
+                res.json()
+                .then((books) => {
+                    setBooks(books)
+                })
             }
         })
     }, [])
@@ -36,7 +32,7 @@ const Books = () => {
         setToggleForm(false)
     }
 
-    const bookList = books.map(b => <BookLink key={b.id} b={b}/>)
+    const bookList = books.map(b => <BookCard key={b.id} books={b}/>)
 
     if (error === '') {
         return (

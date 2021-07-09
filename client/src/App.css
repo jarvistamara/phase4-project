@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  width: 800px;
-  height: 900px;
+  width: 1000px;
+  /* height: 900px; */
   background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   position: absolute;
   left: 0;
@@ -12,7 +12,7 @@
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
-  border-radius: 25px;
+  /* border-radius: 25px; */
 }
 
 .App-logo {
@@ -77,7 +77,34 @@ a:hover {
   color: #000;
 }
 
-.book-cover {
-  width: 314px;
-  height: 475px
+.book-card {
+  background-color:#537895;
+  width: 90%;
+  font-size: small;
+  padding-left: 30px;
+  border-radius: 25px;
+}
+
+.book-card li {
+  list-style-type: none; /* Remove bullets */
+  padding-top: 60px;
+  
+}
+
+.book-card p {
+  text-align: left;
+  padding-bottom: 40px;
+}
+
+.book-card-space {
+  margin: 20px;
+  /* background-color: darkslategrey; */
+  margin-top: 60px;
+  margin-bottom: 60px;
+  min-height: 10px;
+}
+
+.nav-bar-welcome {
+  margin-top: 60px;
+  
 }
