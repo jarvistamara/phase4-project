@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
+# User.destroy_all
 User.create!(
     name: "Tamara",
     username: "Tamara",
@@ -26,7 +26,9 @@ Book.create!([{
     
     In this sweeping parallel novel to the New York Times bestselling Empire of Storms, Chaol, Nesryn, and Yrene will have to draw on every scrap of their resilience if they wish to save their friends. But while they become entangled in the political webs of the khaganate, deep in the shadows of mighty mountains where warriors soar on legendary ruks, long-awaited answers slumber. Answers that might offer their world a chance at survival—or doom them all . . .",
     summary: "In this sweeping parallel novel to the New York Times bestselling Empire of Storms, Chaol, Nesryn, and Yrene will have to draw on every scrap of their resilience if they wish to save their friends. But while they become entangled in the political webs of the khaganate, deep in the shadows of mighty mountains where warriors soar on legendary ruks, long-awaited answers slumber. Answers that might offer their world a chance at survival—or doom them all . . .",
-    user_id: 1
+    user_id: 1,
+    book_cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1497973101l/31450852.jpg",
+    is_read: true
 },
 {
     title: "The Silent Corner",
@@ -40,7 +42,9 @@ Book.create!([{
     
     But all their power and viciousness may not be enough to stop a woman as clever as they are cold-blooded, as relentless as they are ruthless—and who is driven by a righteous rage they can never comprehend. Because it is born of love.",
     summary: "Meet Jane Hawk—a remarkable new heroine certain to become an icon of suspense, propelled by the singular narrative genius of #1 New York Times bestselling author Dean Koontz.",
-    user_id: 1
+    user_id: 1,
+    book_cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1487804391l/32148091._SY475_.jpg",
+    is_read: true
 },
 {
     title: "The Mysterious Island",
@@ -50,5 +54,7 @@ Book.create!([{
 
     What unfolds in Jules Verne’s imaginative marvel is both an enthralling mystery and the ultimate in survivalist adventures.",
     summary: "Based on the true story of Alexander Selkirk, who survived alone for almost five years on an uninhabited island off the coast of Chile, The Mysterious Island is considered by many to be Jules Verne's masterpiece. Wide-eyed mid-nineteenth-century humanistic optimism in a breezy, blissfully readable translation by Stump (Kirkus Reviews), here is the enthralling tale of five men and a dog who land in a balloon on a faraway, fantastic island of bewildering goings-on and their struggle to survive as they uncover the island's secret.",
-    user_id: 1
+    user_id: 1,
+    book_cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388278046l/32831.jpg",
+    is_read: true
 }])

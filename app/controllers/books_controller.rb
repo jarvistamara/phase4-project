@@ -2,6 +2,7 @@ class BooksController < ApplicationController
     before_action :authorize
 
     def index
+        # byebug
         if session[:user_id]
             user = User.find_by(id: session[:user_id])
             books = user.books
@@ -29,7 +30,7 @@ class BooksController < ApplicationController
     private
 
     def book_params
-        params.permit(:title, :author, :genre, :description, :summary)
+        params.permit(:title, :author, :genre, :description, :summary, :book_cover, :is_read)
     end
 
     def authorize

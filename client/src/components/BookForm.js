@@ -6,6 +6,17 @@ const BookForm = ({addNewBook}) => {
     const [genre, setGenre] = useState('')
     const [description, setDescription] = useState('')
     const [summary, setSummary] = useState('')
+    const [bookCover, setBookCover] = useState('')
+    const [isRead, setIsRead] = useState(false)
+
+ 
+    const handleBooleanChange = (e) => {
+        if (e.target.value === "true") {
+            setIsRead(true)
+        } else {
+            setIsRead(false)
+        }
+    }
 
     const handleSubmit = (e) => {
         // prevents a sending of a post request on submit
@@ -15,7 +26,9 @@ const BookForm = ({addNewBook}) => {
             author: author,
             genre: genre,
             description: description,
-            summary: summary
+            summary: summary,
+            book_cover: bookCover,
+            is_read: isRead
         })
     }
 
@@ -36,6 +49,14 @@ const BookForm = ({addNewBook}) => {
                 <br/><br/>
                 <label>Summary:</label>
                 <input type='text' id='summary' value={summary} onChange={(e) => setSummary(e.target.value)}/>
+                <br/><br/>
+                <label>Book Cover:</label>
+                <input type='text' id='bookCover' value={bookCover} onChange={(e) => setBookCover(e.target.value)}/>
+                <br/><br/>
+                <label>Have you read this book?</label>
+                <label><input type="radio" value="true" checked={isRead === true} onChange={handleBooleanChange} />Yes</label>
+                <label><input type="radio" value="false" checked={isRead === false} onChange={handleBooleanChange}/>No</label>
+                <div>Selected option is : {isRead}</div>
                 <br/><br/>
                 <input type='submit' />
             </form>

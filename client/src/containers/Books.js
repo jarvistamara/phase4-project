@@ -15,6 +15,9 @@ const Books = () => {
                 .then((books) => {
                     setBooks(books)
                 })
+            } else {
+                setError(error)
+                console.log(error)
             }
         })
     }, [])
