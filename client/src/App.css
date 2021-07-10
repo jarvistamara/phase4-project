@@ -1,8 +1,8 @@
 .App {
   text-align: center;
-  width: 1000px;
+  width: 100vw;
   /* height: 900px; */
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background-color: #0a2b59;
   position: absolute;
   left: 0;
   right: 0;
@@ -56,7 +56,7 @@ h1 {
 }
 
 h2, h3, p {
-  color: #fff;
+  color: #1375ba;
 }
 
 h4 {
@@ -77,34 +77,77 @@ a:hover {
   color: #000;
 }
 
-.book-card {
-  background-color:#537895;
-  width: 90%;
-  font-size: small;
-  padding-left: 30px;
-  border-radius: 25px;
-}
+.row {
+  background-color:#0a264b;
 
-.book-card li {
-  list-style-type: none; /* Remove bullets */
-  padding-top: 60px;
+  width: 95%;
+  font-size: medium;
+  /* padding-left: 30px; */
+  padding-bottom: 50px;
+  /* border-radius: 25px; */
   
 }
 
-.book-card p {
+.column li {
+  text-align: left;
+  list-style-type: none;
+  padding-top: 60px;
+  color: #1375ba;
+  
+}
+
+.column p {
   text-align: left;
   padding-bottom: 40px;
 }
 
 .book-card-space {
   margin: 20px;
-  /* background-color: darkslategrey; */
-  margin-top: 60px;
-  margin-bottom: 60px;
-  min-height: 10px;
 }
 
 .nav-bar-welcome {
   margin-top: 60px;
   
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+
+}
+
+.column img {
+  padding-top: 60px; 
+  width: 200px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.space {
+  min-height: 40px;
+}
+
+.genre-read {
+  text-shadow: 1px 1px black;
+}
+
+.button {
+  width: 130px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: goldenrod;
+  font-size: 20px;
+  color: #0a264b;
 }

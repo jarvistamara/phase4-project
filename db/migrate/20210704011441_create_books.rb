@@ -4,8 +4,9 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :author
       t.string :genre
+      t.text :summary
+      t.text :description
       t.boolean :is_read
-      t.boolean :is_unread
       t.string :book_cover
       t.integer :user_id
 

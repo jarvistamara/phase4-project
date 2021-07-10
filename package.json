@@ -12,6 +12,9 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
+    "bulma": "^0.9.3",
+    "react-bootstrap": "^1.6.1",
     "react-router-dom": "^5.2.0"
   }
 }

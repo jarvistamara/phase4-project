@@ -58,7 +58,7 @@ const BookForm = ({addNewBook}) => {
                 <label><input type="radio" value="false" checked={isRead === false} onChange={handleBooleanChange}/>No</label>
                 <div>Selected option is : {isRead}</div>
                 <br/><br/>
-                <input type='submit' />
+                <input className="button" type='submit' />
             </form>
         </div>
     )
