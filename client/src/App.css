@@ -293,3 +293,7 @@ a:hover {
 .container-books h1, h3, h4{
   filter: drop-shadow(0 0 0.1rem black);
 }
+
+.spacer {
+  padding-top: 55px;
+}

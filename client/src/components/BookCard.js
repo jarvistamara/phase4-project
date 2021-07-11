@@ -4,58 +4,17 @@ import Book from '../containers/Book'
 
 
 const BookCard= ({books}) => {
+    const [book, setBook] = useState([])
+    const [errors, setErrors] = useState('')
     const [updatedBook, setUpdatedBook] = useState([])
-    const [error, setError] = useState('')
-
     
-
-
-
-    const deleteBook = (id) => {
-        const headerConfig = { method: 'DELETE', headers: { 'Content-Type': 'application/json'}}
-        fetch(`/books/${book.id}`, headerConfig)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    const update = book.map(b => b.id === id ? data : b)
-                    setUpdatedBook({
-                        ...book,
-                        update
-                    })
-                })
-            } else {
-                setError(error)
-                console.log(error)
-            }
-        })
-    }
-
-    const editBook = (book) => {
-        const headerConfig = { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(book)}
-        fetch(`/books/${book.id}`, headerConfig)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    const update = book.map(b => b === data ? data : b)
-                    setUpdatedBook({
-                        ...book,
-                        update
-                    })
-                })
-            } else {
-                setError(error)
-                console.log(error)
-            }
-        })
-    }
-    const book = updatedBook.map(b => <Book key={b.id} editBook={editBook} deleteBook={deleteBook} book={b}/>)
+    
+    
+    const singleBook = updatedBook.map(b => <Book key={b.id} book={b}/>)
 
     return (
         <div>
             <div className="row">
-                
                 <div className='container'>
                     <div className="column">
                         <img src={books.book_cover}/>
