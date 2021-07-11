@@ -1,40 +1,74 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../images/logo.png'
 
 
 const Navbar = (props) => {
     
     if (props.loggedIn) {
         return (
-            <div className='nav-bar-welcome'>
-                <img scr='/client/src/images/logo.png' />
-                <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
-                <h1>Hey, {props.user.name}! Welcome to your Personal Library.</h1>
-            </div>
+             <div className="row-nav">
+                <div className='container nav-bar-welcome'>
+                    <div className="column-nav">
+                    <img className='new-logo' scr={logo} />
+                    </div>
+                    <div className="column-nav">
+                        <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
+                    </div>
+                    <div className="column-nav">
+                        <h1>Hey, {props.user.name}! Welcome to your Personal Library.</h1>
+                    </div>
+                </div>   
+            </div> 
         )
     } else {
     return (
-        <div className='nav-bar-signin'>
-            <h2>PERSONAL BOOK LIBRARY APP.</h2>
-            <h4>Please Login To View Your Books.</h4>
-            <Link to='/signup'><button className="button">SIGN UP</button></Link> 
-            <Link to='/login'><button className="button">LOGIN</button></Link>
-        </div>
+         <div className="row-nav">
+                <div className='container nav-bar-welcome'>
+                    <div className="column-nav">
+                    <img className='new-logo' src={logo} />
+                    </div>
+                    <div className="column-nav signup-instructions">
+                        <h2>PERSONAL BOOK LIBRARY APP.</h2>
+                        <h4>Please Login To View Your Books.</h4>
+                    </div>
+                    <div className="column-nav">
+                        <Link to='/signup'><button className="button">SIGN UP</button></Link> 
+                        <Link to='/login'><button className="button">LOGIN</button></Link>
+                    </div>
+                </div>   
+            </div> 
     )
     }
 }
 export default Navbar
 
 {/* <div className="row">
-                <div className='container'>
-                    <div className="column">
-                        <img src={books.book_cover}/>
+                <div className='container nav-bar-welcome'>
+                    <div className="column-nav">
+                        <img scr='./images/logo.png' />
                     </div>
-                    <div className="column">
-                        <Link to={`/books/${books.id}`}><li>{books.title} ~ {books.author}</li></Link>
-                        <p className='summary'>{books.summary}</p>
-                        <p className='genre-read'>Genre:{books.genre}   |   Read by you: {books.is_read === true ? 'Yes' : 'No'}</p>
-                        
+                    <div className="column-nav">
+                        <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
+                    </div>
+                    <div className="column-nav">
+                        <h1>Hey, {props.user.name}! Welcome to your Personal Library.</h1>
+                    </div>
+                </div>   
+            </div> */}
+
+            {/* <div className="row">
+                <div className='container nav-bar-welcome'>
+                    <div className="column-nav">
+                        <img scr='./images/logo.png' />
+                    </div>
+                    <div className="column-nav">
+                        <h2>PERSONAL BOOK LIBRARY APP.</h2>
+                        <h4>Please Login To View Your Books.</h4>
+                    </div>
+                    <div className="column-nav">
+                        <Link to='/signup'><button className="button">SIGN UP</button></Link> 
+                        <Link to='/login'><button className="button">LOGIN</button></Link>>
                     </div>
                 </div>   
             </div> */}

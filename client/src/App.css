@@ -122,6 +122,13 @@ a:hover {
 }
 
 /* Create two equal columns that floats next to each other */
+.column-nav {
+  float: right;
+  width: 50%;
+  padding: 10px;
+
+}
+
 .column {
   float: left;
   width: 50%;
@@ -151,12 +158,13 @@ a:hover {
 }
 
 .button {
-  width: 130px;
-  height: 45px;
-  border-radius: 5px;
-  background-color: goldenrod;
-  font-size: 20px;
-  color: #0a264b;
+  width: 100px;
+  height: 30px;
+  border-radius: 1px;
+  background-color: #2f374e;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .sign-out{
@@ -164,6 +172,12 @@ a:hover {
  
 }
 
-.nav-bar-welcome, .nav-bar-signin {
-  background-color: whitesmoke;
+.row-nav {
+  background-color:#b76a51;
+  min-height: 180px;
+  min-width: 100%;
 }
+
+.new-logo {
+  max-width: 380px;
+} 
