@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import BookCard from '../components/BookCard'
 import Books from './Books'
 
-const Book = () => {
+const Book = (props) => {
     const [book, setBook] = useState([])
     const [error, setError] = useState('')
 
@@ -11,7 +12,7 @@ const Book = () => {
             if (res.ok) {
                 res.json()
                 .then((books) => {
-                    setBooks(books)
+                    setBook(books)
                 })
             } else {
                 setError(error)
@@ -26,9 +27,9 @@ const Book = () => {
         .then((res) => {
             if (res.ok) {
                 res.json()
-                .then((newBook) => {
-                    const updatedBook = book.map(b => b.id === id ? newBook : b)
-                    setBooks({
+                .then((data) => {
+                    const updatedBook = book.map(b => b.id === id ? data : b)
+                    setBook({
                         ...book,
                         updatedBook
                     })
@@ -41,13 +42,31 @@ const Book = () => {
     }
 
     const editBook = (book) => {
-        const headerConfig = { method:}
-        
+        const headerConfig = { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(book)}
+        fetch(`/books/${id}`, headerConfig)
+        .then((res) => {
+            if (res.ok) {
+                res.json()
+                .then((data) => {
+                    const updatedBook = book.map(b => b === data ? data : b)
+                    setBook({
+                        ...book,
+                        updatedBook
+                    })
+                })
+            } else {
+                setError(error)
+                console.log(error)
+            }
+        })
     }
+
+    const userBook = book.map(b => <BookCard key={book.id} editBook={editBook} deleteBook={deleteBook} book={book} />)
 
     return (
         <div>
-            <h1>TESTING</h1>
+            <img src={books.book_cover}/>
+            
         </div>
     )
 }
