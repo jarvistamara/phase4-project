@@ -1,20 +1,25 @@
 import React from 'react'
+import FeatureOne from '../components/FeatureOne'
+import FeatureTwo from '../components/FeatureTwo'
+import Footer from '../components/Footer'
 import Books from './Books'
-import fade from '../images/fade.png'
 
-const Home = ({userLogin}) => {
-    if (userLogin == true) {
+
+const Home = ({user, userLogin, loggedIn }) => {
+    if (loggedIn == true) {
         return (
             <div>
             <Books />
         </div>
         )
     } else {
-        if (userLogin == false)
+        if (loggedIn == false)
         return (
             <div>
-                <img className='fade' scr={fade} />
-                <h3>testing</h3>
+                <FeatureOne />
+                <FeatureTwo />
+                <div class="push"></div>
+                <Footer />
             </div>
         )
     }

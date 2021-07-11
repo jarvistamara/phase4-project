@@ -10,7 +10,7 @@ const Navbar = (props) => {
              <div className="row-nav">
                 <div className='container nav-bar-welcome'>
                     <div className="column-nav">
-                    <img className='new-logo' scr={logo} />
+                    <img className='new-logo' scr={logo} alt='logo'/>
                     </div>
                     <div className="column-nav">
                         <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
@@ -26,7 +26,7 @@ const Navbar = (props) => {
          <div className="row-nav">
                 <div className='container nav-bar-welcome'>
                     <div className="column-nav">
-                    <img className='new-logo' src={logo} />
+                    <img className='new-logo' src={logo} alt='logo'/>
                     </div>
                     <div className="column-nav signup-instructions">
                         <h4>KEEP TRACK OF YOUR FAVORITE NOVELS.</h4>
