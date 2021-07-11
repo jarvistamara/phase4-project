@@ -29,8 +29,10 @@ const Navbar = (props) => {
                     <img className='new-logo' src={logo} />
                     </div>
                     <div className="column-nav signup-instructions">
-                        <h2>PERSONAL BOOK LIBRARY APP.</h2>
-                        <h4>Please Login To View Your Books.</h4>
+                        <h4>KEEP TRACK OF YOUR FAVORITE NOVELS.</h4>
+                        <h2>Sign up for 
+                            <br />
+                            FREE!.</h2>
                     </div>
                     <div className="column-nav">
                         <Link to='/signup'><button className="button">SIGN UP</button></Link> 

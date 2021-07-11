@@ -174,10 +174,22 @@ a:hover {
 
 .row-nav {
   background-color:#b76a51;
-  min-height: 180px;
+  min-height: 220px;
   min-width: 100%;
 }
 
 .new-logo {
   max-width: 380px;
 } 
+
+.signup-instructions h2{
+  color: white;
+}
+
+.signup-instructions h4{
+  color: white;
+  
+}
+.fade {
+  min-height: 50px;
+}
