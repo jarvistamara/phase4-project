@@ -11,7 +11,7 @@ const BookCard= ({books}) => {
                         <img src={books.book_cover}/>
                     </div>
                     <div className="column">
-                        <Link to={`/books/${books.id}`}><li><h2>{books.title} ~ {books.author}</h2></li></Link>
+                        <Link to={`/books/${books.id}`}><li>{books.title} ~ {books.author}</li></Link>
                         <p className='summary'>{books.summary}</p>
                         <p className='genre-read'>Genre:{books.genre}   |   Read by you: {books.is_read === true ? 'Yes' : 'No'}</p>
                         

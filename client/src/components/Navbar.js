@@ -7,8 +7,9 @@ const Navbar = (props) => {
     if (props.loggedIn) {
         return (
             <div className='nav-bar-welcome'>
+                <img scr='/client/src/images/logo.png' />
+                <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
                 <h1>Hey, {props.user.name}! Welcome to your Personal Library.</h1>
-                <Link to='/logout'><button className="button" onClick={props.userLogout}>SIGN OUT</button></Link>
             </div>
         )
     } else {
@@ -23,3 +24,17 @@ const Navbar = (props) => {
     }
 }
 export default Navbar
+
+{/* <div className="row">
+                <div className='container'>
+                    <div className="column">
+                        <img src={books.book_cover}/>
+                    </div>
+                    <div className="column">
+                        <Link to={`/books/${books.id}`}><li>{books.title} ~ {books.author}</li></Link>
+                        <p className='summary'>{books.summary}</p>
+                        <p className='genre-read'>Genre:{books.genre}   |   Read by you: {books.is_read === true ? 'Yes' : 'No'}</p>
+                        
+                    </div>
+                </div>   
+            </div> */}
