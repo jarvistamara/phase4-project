@@ -1,72 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import BookCard from '../components/BookCard'
-import Books from './Books'
+
 
 const Book = (props) => {
     const [book, setBook] = useState([])
-    const [error, setError] = useState('')
-
+    const [errors, setErrors] = useState('')
+    
     useEffect(() => {
         fetch(`/books/${props.match.params.id}`)
         .then((res) => {
             if (res.ok) {
                 res.json()
-                .then((books) => {
-                    setBook(books)
+                .then((data) => {
+                    setBook(data)
+                    console.log(book)
                 })
             } else {
-                setError(error)
-                console.log(error)
+                setErrors(errors)
+                console.log(errors)
             }
         })
     }, [props.match.params.id])
 
-    const deleteBook = (id) => {
-        const headerConfig = { method: 'DELETE', headers: { 'Content-Type': 'application/json'}}
-        fetch(`/books/${id}`, headerConfig)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    const updatedBook = book.map(b => b.id === id ? data : b)
-                    setBook({
-                        ...book,
-                        updatedBook
-                    })
-                })
-            } else {
-                setError(error)
-                console.log(error)
-            }
-        })
-    }
-
-    const editBook = (book) => {
-        const headerConfig = { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(book)}
-        fetch(`/books/${id}`, headerConfig)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    const updatedBook = book.map(b => b === data ? data : b)
-                    setBook({
-                        ...book,
-                        updatedBook
-                    })
-                })
-            } else {
-                setError(error)
-                console.log(error)
-            }
-        })
-    }
-
-    const userBook = book.map(b => <BookCard key={book.id} editBook={editBook} deleteBook={deleteBook} book={book} />)
-
     return (
-        <div>
-            <img src={books.book_cover}/>
-            
+        <div className='book-container'>
+            <h1>{book.title} ~ {book.author}</h1>
+            <img src={book.book_cover} alt='book'/>
+            <h3>Genre: {book.genre} </h3>
+            <p>{book.description}</p>
         </div>
     )
 }

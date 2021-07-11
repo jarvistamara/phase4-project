@@ -1,8 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Book from '../containers/Book'
 
-const BookCard= ({books, book, editBook, deleteStudent}) => {
+
+const BookCard= ({books}) => {
+    const [updatedBook, setUpdatedBook] = useState([])
+    const [error, setError] = useState('')
+
+    
+
+
+
+    const deleteBook = (id) => {
+        const headerConfig = { method: 'DELETE', headers: { 'Content-Type': 'application/json'}}
+        fetch(`/books/${book.id}`, headerConfig)
+        .then((res) => {
+            if (res.ok) {
+                res.json()
+                .then((data) => {
+                    const update = book.map(b => b.id === id ? data : b)
+                    setUpdatedBook({
+                        ...book,
+                        update
+                    })
+                })
+            } else {
+                setError(error)
+                console.log(error)
+            }
+        })
+    }
+
+    const editBook = (book) => {
+        const headerConfig = { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(book)}
+        fetch(`/books/${book.id}`, headerConfig)
+        .then((res) => {
+            if (res.ok) {
+                res.json()
+                .then((data) => {
+                    const update = book.map(b => b === data ? data : b)
+                    setUpdatedBook({
+                        ...book,
+                        update
+                    })
+                })
+            } else {
+                setError(error)
+                console.log(error)
+            }
+        })
+    }
+    const book = updatedBook.map(b => <Book key={b.id} editBook={editBook} deleteBook={deleteBook} book={b}/>)
 
     return (
         <div>
@@ -17,7 +65,6 @@ const BookCard= ({books, book, editBook, deleteStudent}) => {
                         <p className='summary'>{books.summary}</p>
                         <p className='genre-read'>Genre:{books.genre}   |   Read by you: {books.is_read === true ? 'Yes' : 'No'}</p>
                         <div className='buttons container'>
-                            <button className="button" onClick={props.userLogout}>EDIT</button> | <button className="button" onClick={props.userLogout}>DELETE</button>
                         </div>
                     </div>
                 </div>   

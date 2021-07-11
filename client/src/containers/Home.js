@@ -6,14 +6,14 @@ import Books from './Books'
 
 
 const Home = ({user, userLogin, loggedIn }) => {
-    if (loggedIn == true) {
+    if (loggedIn === true) {
         return (
             <div>
             <Books />
         </div>
         )
     } else {
-        if (loggedIn == false)
+        if (loggedIn === false)
         return (
             <div>
                 <FeatureOne />

@@ -94,6 +94,17 @@ a:hover {
   
 }
 
+.book-container {
+  padding: 70px;
+  color: #fff;
+  font-weight: bolder;
+  filter: drop-shadow(0 0 0.2rem black);
+  background-image: url('./images/book-card-bg.png');
+  background-size: repeat;
+  width: 95%;
+  
+}
+
 .column li {
   text-align: left;
   list-style-type: none;

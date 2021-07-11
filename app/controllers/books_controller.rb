@@ -13,6 +13,16 @@ class BooksController < ApplicationController
         end
     end
 
+     # get one event
+     def show 
+        book = Book.find_by(id: params[:id])
+        if book
+            render json: book, status: :ok
+        else
+            render json: { error: book.errors.full_messages }, status: :not_found 
+        end
+    end
+
     def create
         if session[:user_id]
             user = User.find_by(id: session[:user_id])
