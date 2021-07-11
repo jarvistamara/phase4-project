@@ -37,6 +37,30 @@ class BooksController < ApplicationController
         end
     end
 
+    def update
+        byebug
+        if session[:user_id]
+            user = User.find_by(id: session[:user_id])
+            book = Book.find_by(id: params[:id])
+            if book
+                book.update(book_params)
+                render json: book, status: :accepted
+            else
+                render json: { errors: book.errors.full_messages }, status: :unprocessable_entity
+            end
+        else
+            render json: { error: "Unauthorized" }, status: :unauthorized
+        end
+    end
+
+    def destroy
+        book = Book.find_by(id: params[:id])
+        if book
+            book.destroy
+            head :no_content
+        end
+    end
+
     private
 
     def book_params

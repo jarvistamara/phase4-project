@@ -70,7 +70,10 @@ const Book = (props) => {
     return (
         <div className='book-container'>
             <h1>{book.title} ~ {book.author}</h1>
-            <img src={book.book_cover} alt='book'/>
+            <div className="column">
+                <img src={book.book_cover} alt='book'/>
+            </div>
+            
             <h3>Genre: {book.genre} </h3>
             <p>{book.description}</p>
             <div className='spacer'>
