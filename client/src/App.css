@@ -84,8 +84,8 @@ a:hover {
 }
 
 .row {
-  background-color:#0a264b;
-
+  background-image: url('./images/book-card-bg.png');
+  background-size: repeat;
   width: 95%;
   font-size: medium;
   /* padding-left: 30px; */
@@ -129,6 +129,10 @@ a:hover {
 
 }
 
+.column-nav h2 {
+  color: white;
+}
+
 .column {
   float: left;
   width: 50%;
@@ -165,6 +169,17 @@ a:hover {
   font-size: 12px;
   font-weight: bold;
   color: #fff;
+}
+
+.form-container {
+  padding: 50px;
+  color: #fff;
+  font-weight: bolder;
+  filter: drop-shadow(0 0 0.2rem black);
+  background-image: url('./images/book-card-bg.png');
+  background-size: repeat;
+  width: 95%;
+
 }
 
 .sign-out{
@@ -249,4 +264,21 @@ a:hover {
 
 .footer h5 {
   padding-top: 25px;
+}
+
+.login-container {
+  filter: drop-shadow(0 0 0.75rem black);
+}
+
+.login-container form label {
+  color: #fff;
+  font-weight: bolder;
+}
+
+.column-nav signout {
+  margin-left: 1400px;
+}
+
+.container-books h1, h3, h4{
+  filter: drop-shadow(0 0 0.1rem black);
 }

@@ -36,14 +36,19 @@ const Books = () => {
     }
 
     const bookList = books.map(b => <BookCard key={b.id} books={b}/>)
+    
+
+
 
     if (error === '') {
         return (
-            <div>
-                
-                <p>Click on a Book below to view Book details.</p>
+
+            <div className='container-books'>
+                <div className='form-container'>
+                {toggleForm ? <BookForm addNewBook={addNewBook} /> : <button className='button two' onClick={() => setToggleForm(true)}>Add A New Book</button>}
+                </div>
+                <h1>Saved Books:</h1>
                 <ul><h4>{bookList} </h4></ul>
-                {toggleForm ? <BookForm addNewBook={addNewBook} /> : <button onClick={() => setToggleForm(true)}>Add A New Book</button>}
             </div>
         )
         } else {

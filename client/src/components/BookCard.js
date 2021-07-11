@@ -6,6 +6,7 @@ const BookCard= ({books}) => {
     return (
         <div>
             <div className="row">
+                
                 <div className='container'>
                     <div className="column">
                         <img src={books.book_cover}/>
