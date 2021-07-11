@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Book from '../containers/Book'
 
 const BookCard= ({books}) => {
+    // const [book, setBook] = useState([])
+    // const [errors, setErrors] = useState('')
 
+    
     return (
         <div>
             <div className="row">
