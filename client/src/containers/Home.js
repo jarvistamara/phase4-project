@@ -18,7 +18,7 @@ const Home = ({user, userLogin, loggedIn }) => {
             <div>
                 <FeatureOne />
                 <FeatureTwo />
-                <div class="push"></div>
+                <div className="push"></div>
                 <Footer />
             </div>
         )

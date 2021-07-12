@@ -18,7 +18,6 @@ const Book = (props) => {
                 })
             } else {
                 setErrors(errors)
-                console.log(errors)
             }
         })
     }, [props.match.params.id])
@@ -37,7 +36,6 @@ const Book = (props) => {
                 })
             } else {
                 setErrors(errors)
-                console.log(errors)
             }
         })
     }
@@ -62,7 +60,6 @@ const Book = (props) => {
                 })
             } else {
                 setErrors(errors)
-                console.log(errors)
             }
         })
     }

@@ -15,7 +15,7 @@ const Navbar = (props) => {
                     <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
                     </div>
                     <div className="column-nav">
-                    <img className='new-logo' src={logo} alt='logo'/>
+                    <Link to='/'><img className='new-logo' src={logo} alt='logo'/></Link>
                     <h2>Hey, {props.user.name}! <br/>Welcome to your Personal Library.</h2>
                     </div>
                 </div>   
