@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import BookEditForm from '../components/BookEditForm'
 
 
@@ -7,38 +8,28 @@ const Book = (props) => {
     const [errors, setErrors] = useState('')
     const [bookForm, setBookForm] = useState(false)
 
+
     useEffect(() => {
         fetch(`/books/${props.match.params.id}`)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    setBook(data)
-                    console.log(data)
-                })
+        .then(res => res.json())
+        .then(data => {
+            if (data.errors) {
+                setErrors(data.errors)
             } else {
-                setErrors(errors)
+                setBook(data)
+                console.log(data) 
             }
         })
     }, [props.match.params.id])
 
-    const deleteBook = (id) => {
-        const headerConfig = { method: 'DELETE', headers: { 'Content-Type': 'application/json'}}
-        fetch(`/books/${book.id}`, headerConfig)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    const update = book.map(b => b.id === id ? data : b)
-                    setBook({
-                        update
-                    })
-                })
-            } else {
-                setErrors(errors)
-            }
-        })
-    }
+    // const deleteBook = (id) => {
+    //     const headerConfig = { method: 'DELETE', headers: { 'Content-Type': 'application/json'}}
+    //     fetch(`/books/${book.id}`, headerConfig)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //                 setBook('')
+    //     })
+    // }
 
     const editBook = (book) => {
         const headerConfig = { 
@@ -49,27 +40,22 @@ const Book = (props) => {
             }, 
             body: JSON.stringify(book)}
         fetch(`/books/${book.id}`, headerConfig)
-        .then((res) => {
-            if (res.ok) {
-                res.json()
-                .then((data) => {
-                    const update = book.map(b => b === data ? data : b)
-                    setBook({
-                        update
-                    })
-                })
+        .then(res => res.json())
+        .then(data => {
+            if (data.errors) {
+                setErrors(data.errors)
             } else {
-                setErrors(errors)
+                setBook(data)
+                console.log(data) 
             }
         })
+        setBookForm(false)
     }
+
 
     const changeFormState = (e) => {
         setBookForm(true)
-    }
-
-
-
+    }    
     return (
         <div className='book-container'>
             <h1>{book.title} ~ {book.author}</h1>
@@ -80,9 +66,11 @@ const Book = (props) => {
             <h3>Genre: {book.genre} </h3>
             <p>{book.description}</p>
             <div className='spacer'>
-            {bookForm ? <BookEditForm editBook={editBook} book={book}/> : <button onClick={changeFormState}>EDIT</button>} | <button onClick={deleteBook}>DELETE</button>
+            {bookForm ? <BookEditForm editBook={editBook} book={book}/> : <button onClick={changeFormState}>EDIT</button>} 
+            {/* | <button book={book} onClick={deleteBook}>DELETE</button> */}
             </div>
         </div>
     )
+    
 }
 export default Book

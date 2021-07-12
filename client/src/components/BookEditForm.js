@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 
 class BookEditForm extends Component {
-
         state = {
-        title: '',
-        author: '',
-        genre: '',
-        description: '',
-        summary: '',
-        book_cover: '',
+        id: this.props.book.id,
+        title: this.props.book.title,
+        author: this.props.book.author,
+        genre: this.props.book.genre,
+        description: this.props.book.description,
+        summary: this.props.book.summary,
+        book_cover: this.props.book.book_cover,
         is_read: false
     }
 
@@ -34,16 +34,6 @@ class BookEditForm extends Component {
     handleSubmit = (e) => {
         // prevents a sending of a post request on submit
         e.preventDefault()
-        let book = {
-            title: this.props.state.title,
-            author: this.state.author,
-            genre: this.state.genre,
-            description: this.state.description,
-            summary: this.state.summary,
-            book_cover: this.state.book_cover,
-            is_read: this.state.is_read,
-            id: this.props.userLogin[0].id
-        }
         this.props.editBook(this.state)
        
     }
