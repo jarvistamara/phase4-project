@@ -43,7 +43,13 @@ const Book = (props) => {
     }
 
     const editBook = (book) => {
-        const headerConfig = { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(book)}
+        const headerConfig = { 
+            method: 'PATCH', 
+            headers: { 
+                'Content-Type': 'application/json', 
+                'Accept': 'application/json' 
+            }, 
+            body: JSON.stringify(book)}
         fetch(`/books/${book.id}`, headerConfig)
         .then((res) => {
             if (res.ok) {

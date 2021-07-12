@@ -38,18 +38,15 @@ class BooksController < ApplicationController
     end
 
     def update
-        byebug
         if session[:user_id]
-            user = User.find_by(id: session[:user_id])
-            book = Book.find_by(id: params[:id])
+            user = User.find_by(id: session[:user_id]
+            book = Book.find(id: params[:id])
             if book
                 book.update(book_params)
-                render json: book, status: :accepted
+                render json: book
             else
-                render json: { errors: book.errors.full_messages }, status: :unprocessable_entity
+                render json: { error: "Book not found" }, status: :not_found
             end
-        else
-            render json: { error: "Unauthorized" }, status: :unauthorized
         end
     end
 

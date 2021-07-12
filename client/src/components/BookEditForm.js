@@ -8,6 +8,7 @@ const BookEditForm = ({editBook}) => {
     const [summary, setSummary] = useState('')
     const [bookCover, setBookCover] = useState('')
     const [isRead, setIsRead] = useState(false)
+    const [book, setBook] = useState([])
 
  
     const handleBooleanChange = (e) => {
