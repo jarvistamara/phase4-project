@@ -14,7 +14,7 @@ const Book = (props) => {
                 res.json()
                 .then((data) => {
                     setBook(data)
-                    console.log(book)
+                    console.log(data)
                 })
             } else {
                 setErrors(errors)

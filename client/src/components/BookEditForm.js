@@ -1,67 +1,83 @@
-import React, { useEffect, useState } from 'react'
+import React, { Component } from 'react'
 
-const BookEditForm = ({editBook}) => {
-    const [title, setTitle] = useState('')
-    const [author, setAuthor] = useState('')
-    const [genre, setGenre] = useState('')
-    const [description, setDescription] = useState('')
-    const [summary, setSummary] = useState('')
-    const [bookCover, setBookCover] = useState('')
-    const [isRead, setIsRead] = useState(false)
-    const [book, setBook] = useState([])
+class BookEditForm extends Component {
 
- 
-    const handleBooleanChange = (e) => {
-        if (e.target.value === "true") {
-            setIsRead(true)
-        } else {
-            setIsRead(false)
-        }
+        state = {
+        title: '',
+        author: '',
+        genre: '',
+        description: '',
+        summary: '',
+        book_cover: '',
+        is_read: false
     }
 
-    const handleSubmit = (e) => {
-        // prevents a sending of a post request on submit
-        e.preventDefault()
-        editBook({
-            title: title,
-            author: author,
-            genre: genre,
-            description: description,
-            summary: summary,
-            book_cover: bookCover,
-            is_read: isRead
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
         })
     }
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>Title:</label>
-                <input type='text' id='title' value={title} onChange={(e) => setTitle(e.target.value)}/>
-                <br/><br/>
-                <label>Author:</label>
-                <input type='text' id='author' value={author} onChange={(e) => setAuthor(e.target.value)}/>
-                <br/><br/>
-                <label>Genre:</label>
-                <input type='text' id='genre' value={genre} onChange={(e) => setGenre(e.target.value)}/>
-                <br/><br/>
-                <label>Description:</label>
-                <input type='text' id='description' value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <br/><br/>
-                <label>Summary:</label>
-                <input type='text' id='summary' value={summary} onChange={(e) => setSummary(e.target.value)}/>
-                <br/><br/>
-                <label>Book Cover:</label>
-                <input type='text' id='bookCover' value={bookCover} onChange={(e) => setBookCover(e.target.value)}/>
-                <br/><br/>
-                <label>Have you read this book?</label>
-                <label><input type="radio" value="true" checked={isRead === true} onChange={handleBooleanChange} />Yes</label>
-                <label><input type="radio" value="false" checked={isRead === false} onChange={handleBooleanChange}/>No</label>
-                <div>Selected option is : {isRead}</div>
-                <br/><br/>
-                <input className="button" type='submit' />
-            </form>
-        </div>
-    )
+    handleBooleanChange = (e) => {
+        if (e.target.value === "true") {
+            this.setState({
+               is_read: true 
+            })
+           
+        } else {
+            this.setState({
+                is_read: false 
+             })
+        }
+    }
+
+    handleSubmit = (e) => {
+        // prevents a sending of a post request on submit
+        e.preventDefault()
+        let book = {
+            title: this.props.state.title,
+            author: this.state.author,
+            genre: this.state.genre,
+            description: this.state.description,
+            summary: this.state.summary,
+            book_cover: this.state.book_cover,
+            is_read: this.state.is_read,
+            id: this.props.userLogin[0].id
+        }
+        this.props.editBook(this.state)
+       
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>Title:</label>
+                    <input type='text' id='title' value={this.state.title} onChange={this.handleChange}/>
+                    <br/><br/>
+                    <label>Author:</label>
+                    <input type='text' id='author' value={this.state.author} onChange={this.handleChange}/>
+                    <br/><br/>
+                    <label>Genre:</label>
+                    <input type='text' id='genre' value={this.state.genre} onChange={this.handleChange}/>
+                    <br/><br/>
+                    <label>Description:</label>
+                    <input type='text' id='description' value={this.state.description} onChange={this.handleChange}/>
+                    <br/><br/>
+                    <label>Summary:</label>
+                    <input type='text' id='summary' value={this.state.summary} onChange={this.handleChange}/>
+                    <br/><br/>
+                    <label>Book Cover:</label>
+                    <input type='text' id='book_cover' value={this.state.book_cover} onChange={this.handleChange}/>
+                    <br/><br/>
+                    <label>Have you read this book?</label>
+                    <label><input type="radio" value="true" checked={this.state.is_read === true} onChange={this.handleBooleanChange} />Yes</label>
+                    <label><input type="radio" value="false" checked={this.state.is_read === false} onChange={this.handleBooleanChange}/>No</label>
+                    <br/><br/>
+                    <input className="button" type='submit' />
+                </form>
+            </div>
+        )
+    }
 }
 export default BookEditForm

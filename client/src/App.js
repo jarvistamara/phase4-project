@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Books from './containers/Books';
 import Book from './containers/Book';
 
+
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
@@ -50,8 +51,9 @@ function App(props) {
         <Route exact path='/signup'  render={routerProps => <Signup {...routerProps} userLogin={userLogin}/>}/>
         <Route exact path='/login'  render={routerProps => <Login {...routerProps} userLogin={userLogin}/>}/>
         <Route exact path='/books'  render={routerProps => <Books {...routerProps} user={user} loggedIn={loggedIn} userLogin={userLogin}/>}/>
-        <Route path='/books/:id'  component={Book}/>
+        <Route path='/books/:id'  render={routerProps => <Book {...routerProps} user={user} loggedIn={loggedIn} userLogin={userLogin}/>}/>
       </Switch>
+      
     </div>
   );
 }

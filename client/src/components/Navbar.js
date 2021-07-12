@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useState } from 'react-router-dom'
 import logo from '../images/logo.png'
 
 
 const Navbar = (props) => {
+    const history = useHistory()
     
     if (props.loggedIn) {
         return (
              <div className="row-nav">
                 <div className='container nav-bar-welcome'>
                     <div className="column-nav">
+                    <Link to='/'><button className="button sign-out" onClick={history.push('/')}>HOME</button></Link>
                     <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
                     </div>
                     <div className="column-nav">

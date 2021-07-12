@@ -39,7 +39,9 @@ class BooksController < ApplicationController
 
     def update
         if session[:user_id]
-            user = User.find_by(id: session[:user_id]
+            # byebug
+            user = User.find_by(id: session[:user_id])
+            # byebug
             book = Book.find(id: params[:id])
             if book
                 book.update(book_params)
