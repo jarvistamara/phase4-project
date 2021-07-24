@@ -38,10 +38,6 @@ const Signup = ({userLogin}) => {
         })
     }
 
-    // console.log(errorDetails.slice(-118))
-
-    // #<ActiveRecord::RecordInvalid: Validation failed: Password can't be blank, Name can't be blank, Username can't be blank, Password confirmation doesn't match Password>
-
     return (
         <div className='login-container'>
             <h1>Sign Up Below!</h1>
