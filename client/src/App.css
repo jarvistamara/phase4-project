@@ -299,10 +299,17 @@ a:hover {
 }
 
 form {
+  background-color: #4d2323;
   padding-top: 25px;
-  color: white;
+  color:white;
   font-weight: bold;
-  filter: drop-shadow(0 0 0.75rem black);
-  max-width: 300px;
+  /* filter: drop-shadow(0 0 0.05rem white); */
+  max-width: 350px;
+  min-height: 350px;
   margin: auto;
+}
+
+.error {
+  color:crimson;
+  padding: 20px;
 }

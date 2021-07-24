@@ -6,7 +6,7 @@ const Signup = ({userLogin, setLoggedIn}) => {
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [name, setName] = useState('')
     const [errors, setErrors] = useState([])
-    const [errorDetails, setErrorDetails] = useState([])
+    const [errorDetails, setErrorDetails] = useState('[]')
     const [invaildLogin, setInvalidLogin] = useState(false)
 
     const handleSubmit = (e) => {
@@ -26,6 +26,7 @@ const Signup = ({userLogin, setLoggedIn}) => {
         .then(res => res.json())
         .then(user => {
             console.log(user)
+
             if (user.error) {
                 setErrors(user.error)
                 setErrorDetails(user.exception)
@@ -36,9 +37,9 @@ const Signup = ({userLogin, setLoggedIn}) => {
                 
             }
         })
-        handleException
     }
 
+    console.log(errorDetails.slice(-118))
 
     // #<ActiveRecord::RecordInvalid: Validation failed: Password can't be blank, Name can't be blank, Username can't be blank, Password confirmation doesn't match Password>
 
@@ -59,8 +60,7 @@ const Signup = ({userLogin, setLoggedIn}) => {
                 <br/>
                 <input type='submit' />
                 <div>
-                    {errors && (<p className="error"> {errors} </p>)}
-                    {errorDetails && (<p className="error"> {errorDetails} </p>)}
+                    {invaildLogin ? <p className="error"> {errors} : {errorDetails.slice(-118)}</p> : <p> </p>}
                 </div>
             </form>
         </div>
