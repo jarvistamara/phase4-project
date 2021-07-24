@@ -26,7 +26,7 @@ const Navbar = (props) => {
          <div className="row-nav">
                 <div className='container nav-bar-welcome'>
                     <div className="column-nav">
-                    <img className='new-logo' src={logo} alt='logo'/>
+                    <Link to='/'><img className='new-logo' src={logo} alt='logo'/></Link>
                     </div>
                     <div className="column-nav signup-instructions">
                         <h4>KEEP TRACK OF YOUR FAVORITE NOVELS.</h4>
@@ -35,6 +35,7 @@ const Navbar = (props) => {
                             FREE!.</h2>
                     </div>
                     <div className="column-nav">
+                        <Link to='/'><button className="button" onClick={history.push('/')}>HOME</button></Link>
                         <Link to='/signup'><button className="button">SIGN UP</button></Link> 
                         <Link to='/login'><button className="button">LOGIN</button></Link>
                     </div>

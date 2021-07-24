@@ -43,7 +43,8 @@ const Signup = ({userLogin}) => {
     // #<ActiveRecord::RecordInvalid: Validation failed: Password can't be blank, Name can't be blank, Username can't be blank, Password confirmation doesn't match Password>
 
     return (
-        <div>
+        <div className='login-container'>
+            <h1>Sign Up Below!</h1>
             <form onSubmit={handleSubmit}>
                 <label>Name:</label><br/>
                 <input type='text' id='name' value={name} onChange={(e) => setName(e.target.value)}/>

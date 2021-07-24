@@ -49,10 +49,10 @@ const Login = ({userLogin, setLoggedIn}) => {
         <div className='login-container'>
             <h1>LOGIN BELOW:</h1>
             <form onSubmit={handleSubmit}>
-                <label>Username:</label>
+                <label>Username:</label><br/>
                 <input type='text' id='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
                 <br/><br/>
-                <label>Password:</label>
+                <label>Password:</label><br/>
                 <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <br/><br/>
                 <input type='submit' />
