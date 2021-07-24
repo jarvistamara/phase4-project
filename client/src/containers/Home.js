@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import Books from './Books'
 
 
-const Home = ({user, userLogin, loggedIn }) => {
+const Home = ({user, loggedIn}) => {
     if (loggedIn === true) {
         return (
             <div>
@@ -13,7 +13,7 @@ const Home = ({user, userLogin, loggedIn }) => {
         </div>
         )
     } else {
-        if (loggedIn === false)
+        if (!loggedIn === true)
         return (
             <div>
                 <FeatureOne />

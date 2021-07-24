@@ -19,7 +19,7 @@ function App(props) {
     fetch('/me')
     .then(res => { if (res.ok) { res.json() 
         .then(user => {
-          setLoggedIn(true)
+          // setLoggedIn(true)
           setUser(user)
         })
       }
@@ -50,9 +50,7 @@ function App(props) {
         <Route exact path='/' 
         render={routerProps => 
         <Home {...routerProps} 
-        user={user} 
-        loggedIn={loggedIn} 
-        userLogout={userLogout}/>}/>
+        user={user} loggedIn={loggedIn}/>}/>
 
         <Route exact path='/signup'  
         render={routerProps => 
@@ -63,7 +61,8 @@ function App(props) {
         <Route exact path='/login'  
         render={routerProps => 
         <Login {...routerProps} 
-        userLogin={userLogin}/>}/>
+        userLogin={userLogin}
+        setLoggedIn={setLoggedIn} />}/>
         
         <Route exact path='/books'  
         render={routerProps => 

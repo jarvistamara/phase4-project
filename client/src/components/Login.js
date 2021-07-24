@@ -2,13 +2,12 @@ import React, { useState, } from 'react'
 import { useHistory } from 'react-router-dom' 
 
 
-const Login = ({userLogin}) => {
+const Login = ({userLogin, setLoggedIn}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
-    const [invaildLogin, setInvalidLogin] = useState(false)
+    const [invalidLogin, setInvalidLogin] = useState(false)
     const history = useHistory()
-
 
     const handleSubmit = (e) => {
         // prevents a sending of a post request on submit
@@ -26,14 +25,23 @@ const Login = ({userLogin}) => {
         .then(response => {
             console.log(response)
             if (response.error) {
+                setLoggedIn(false)
                 setErrors(response.error)
                 setInvalidLogin(true)
-                history.push('/login')
+                
             } else {
                 userLogin(response)
                 
             }
         })
+    }
+
+    if (userLogin === false) {
+        history.push('/login')
+    } else {
+        if (userLogin === true) {
+            history.push('/') 
+        }
     }
 
     return (
@@ -48,7 +56,7 @@ const Login = ({userLogin}) => {
                 <br/><br/>
                 <input type='submit' />
                 <div>
-                    {invaildLogin ? <p className="error"> {errors[0]}</p> : <p> </p>}
+                    {invalidLogin ? <p className="error"> {errors[0]}</p> : <p> </p>}
                 </div>
             </form>
         </div>
