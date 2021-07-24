@@ -297,3 +297,12 @@ a:hover {
 .spacer {
   padding-top: 55px;
 }
+
+form {
+  padding-top: 25px;
+  color: white;
+  font-weight: bold;
+  filter: drop-shadow(0 0 0.75rem black);
+  max-width: 300px;
+  margin: auto;
+}

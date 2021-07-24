@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 #  SIGNUP - FRONTEND
     def create
+        # byebug
         # get the user information from the STRONG PARAMS
         user = User.create!(user_params)
 

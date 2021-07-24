@@ -8,6 +8,7 @@ const Login = ({userLogin}) => {
         // prevents a sending of a post request on submit
         e.preventDefault()
         fetch('/login', {
+            withCreditials: true,
             method: "POST",
         headers: {
             "Content-Type": "application/json"

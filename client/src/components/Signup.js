@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 
-const Signup = ({userLogin}) => {
+const Signup = ({userLogin, setLoggedIn}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [name, setName] = useState('')
+    const [errors, setErrors] = useState([])
+    const [errorDetails, setErrorDetails] = useState([])
+    const [invaildLogin, setInvalidLogin] = useState(false)
 
     const handleSubmit = (e) => {
-        // prevents a sending of a post request on submit
         e.preventDefault()
         const headersConfig = {method: "POST",
         headers: {
@@ -19,26 +21,47 @@ const Signup = ({userLogin}) => {
             password: password,
             password_confirmation: passwordConfirmation
         })}
+
         fetch('/signup', headersConfig)
         .then(res => res.json())
-        .then(user => userLogin(user))
+        .then(user => {
+            console.log(user)
+            if (user.error) {
+                setErrors(user.error)
+                setErrorDetails(user.exception)
+                setInvalidLogin(true)
+            } else {
+                userLogin(user)
+                setLoggedIn(true)
+                
+            }
+        })
+        handleException
     }
+
+
+    // #<ActiveRecord::RecordInvalid: Validation failed: Password can't be blank, Name can't be blank, Username can't be blank, Password confirmation doesn't match Password>
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label>Name:</label>
+                <label>Name:</label><br/>
                 <input type='text' id='name' value={name} onChange={(e) => setName(e.target.value)}/>
                 <br/><br/>
-                <label>Username:</label>
+                <label>Username:</label><br/>
                 <input type='text' id='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
                 <br/><br/>
-                <label>Password:</label>
+                <label>Password:</label><br/>
                 <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <br/><br/>
-                <label>Password Confirmation:</label>
+                <label>Password Confirmation:</label><br/>
                 <input type='password' id='passwordConfirmation' value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
+                <br/>
                 <input type='submit' />
+                <div>
+                    {errors && (<p className="error"> {errors} </p>)}
+                    {errorDetails && (<p className="error"> {errorDetails} </p>)}
+                </div>
             </form>
         </div>
     )
