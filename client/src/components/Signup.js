@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Signup = ({userLogin, setLoggedIn}) => {
+const Signup = ({userLogin}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -33,13 +33,12 @@ const Signup = ({userLogin, setLoggedIn}) => {
                 setInvalidLogin(true)
             } else {
                 userLogin(user)
-                setLoggedIn(true)
                 
             }
         })
     }
 
-    console.log(errorDetails.slice(-118))
+    // console.log(errorDetails.slice(-118))
 
     // #<ActiveRecord::RecordInvalid: Validation failed: Password can't be blank, Name can't be blank, Username can't be blank, Password confirmation doesn't match Password>
 

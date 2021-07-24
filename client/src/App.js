@@ -16,7 +16,7 @@ function App(props) {
 
 // in order to keep user
   useEffect(() => {
-    fetch('/me', {withCredentials: true})
+    fetch('/me')
     .then(res => { if (res.ok) { res.json() 
         .then(user => {
           setLoggedIn(true)
@@ -47,11 +47,36 @@ function App(props) {
     <div className="App">
       <NavBar user={user} loggedIn={loggedIn} userLogout={userLogout}/>
       <Switch>
-        <Route exact path='/' render={routerProps => <Home {...routerProps} user={user} loggedIn={loggedIn} userLogout={userLogout}/>}/>
-        <Route exact path='/signup'  render={routerProps => <Signup {...routerProps} userLogin={userLogin} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
-        <Route exact path='/login'  render={routerProps => <Login {...routerProps} userLogin={userLogin}/>}/>
-        <Route exact path='/books'  render={routerProps => <Books {...routerProps} user={user} loggedIn={loggedIn} userLogin={userLogin}/>}/>
-        <Route path='/books/:id'  render={routerProps => <Book {...routerProps} user={user} loggedIn={loggedIn} userLogin={userLogin}/>}/>
+        <Route exact path='/' 
+        render={routerProps => 
+        <Home {...routerProps} 
+        user={user} 
+        loggedIn={loggedIn} 
+        userLogout={userLogout}/>}/>
+
+        <Route exact path='/signup'  
+        render={routerProps => 
+        <Signup {...routerProps} 
+        userLogin={userLogin} 
+        setLoggedIn={setLoggedIn}/>}/>
+
+        <Route exact path='/login'  
+        render={routerProps => 
+        <Login {...routerProps} 
+        userLogin={userLogin}/>}/>
+        
+        <Route exact path='/books'  
+        render={routerProps => 
+        <Books {...routerProps} 
+        user={user} 
+        loggedIn={loggedIn} />}/>
+
+        <Route path='/books/:id'  
+        render={routerProps => 
+        <Book {...routerProps} 
+        user={user} 
+        loggedIn={loggedIn} 
+        userLogin={userLogin}/>}/>
       </Switch>
       
     </div>

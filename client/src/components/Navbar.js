@@ -44,33 +44,3 @@ const Navbar = (props) => {
     }
 }
 export default Navbar
-
-{/* <div className="row">
-                <div className='container nav-bar-welcome'>
-                    <div className="column-nav">
-                        <img scr='./images/logo.png' />
-                    </div>
-                    <div className="column-nav">
-                        <Link to='/logout'><button className="button sign-out" onClick={props.userLogout}>SIGN OUT</button></Link>
-                    </div>
-                    <div className="column-nav">
-                        <h1>Hey, {props.user.name}! Welcome to your Personal Library.</h1>
-                    </div>
-                </div>   
-            </div> */}
-
-            {/* <div className="row">
-                <div className='container nav-bar-welcome'>
-                    <div className="column-nav">
-                        <img scr='./images/logo.png' />
-                    </div>
-                    <div className="column-nav">
-                        <h2>PERSONAL BOOK LIBRARY APP.</h2>
-                        <h4>Please Login To View Your Books.</h4>
-                    </div>
-                    <div className="column-nav">
-                        <Link to='/signup'><button className="button">SIGN UP</button></Link> 
-                        <Link to='/login'><button className="button">LOGIN</button></Link>>
-                    </div>
-                </div>   
-            </div> */}

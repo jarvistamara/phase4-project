@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
+import { useHistory } from 'react-router-dom' 
+
 
 const Login = ({userLogin}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState([])
+    const [invaildLogin, setInvalidLogin] = useState(false)
+    const history = useHistory()
+
 
     const handleSubmit = (e) => {
         // prevents a sending of a post request on submit
         e.preventDefault()
         fetch('/login', {
-            withCreditials: true,
             method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -18,7 +23,17 @@ const Login = ({userLogin}) => {
             password: password
         })})
         .then(res => res.json())
-        .then(user => userLogin(user))
+        .then(response => {
+            console.log(response)
+            if (response.error) {
+                setErrors(response.error)
+                setInvalidLogin(true)
+                history.push('/login')
+            } else {
+                userLogin(response)
+                
+            }
+        })
     }
 
     return (
@@ -32,6 +47,9 @@ const Login = ({userLogin}) => {
                 <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <br/><br/>
                 <input type='submit' />
+                <div>
+                    {invaildLogin ? <p className="error"> {errors[0]}</p> : <p> </p>}
+                </div>
             </form>
         </div>
     )

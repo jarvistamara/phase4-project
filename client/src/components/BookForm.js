@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
-const BookForm = ({addNewBook}) => {
+const BookForm = ({addNewBook, loggedIn}) => {
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [genre, setGenre] = useState('')
@@ -32,8 +33,9 @@ const BookForm = ({addNewBook}) => {
         })
     }
 
-    return (
-        <div>
+    if (loggedIn === true) {
+        return (
+            <div>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input type='text' id='title' value={title} onChange={(e) => setTitle(e.target.value)}/>
@@ -61,6 +63,13 @@ const BookForm = ({addNewBook}) => {
                 <input className="button" type='submit' />
             </form>
         </div>
-    )
+        )
+    } else {
+        return (
+            <div>You must be logged in to use this application. 
+                <Link to='/signup'><button className="button">SIGN UP</button></Link> 
+            </div>
+        )
+    }
 }
 export default BookForm
