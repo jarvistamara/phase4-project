@@ -23,10 +23,11 @@ const Login = ({userLogin, setLoggedIn}) => {
         })})
         .then(res => res.json())
         .then(response => {
-            console.log(response)
-            if (response.error) {
+            console.log(response.errors)
+            if (response.errors) {
+                console.log("false")
                 setLoggedIn(false)
-                setErrors(response.error)
+                setErrors(response.errors)
                 setInvalidLogin(true)
                 
             } else {
@@ -56,7 +57,7 @@ const Login = ({userLogin, setLoggedIn}) => {
                 <br/><br/>
                 <input type='submit' />
                 <div>
-                    {invalidLogin ? <p className="error"> {errors[0]}</p> : <p> </p>}
+                    {invalidLogin ? <p className="error"> {errors}</p> : <p> </p>}
                 </div>
             </form>
         </div>

@@ -6,6 +6,8 @@ import Books from './Books'
 
 
 const Home = ({user, loggedIn}) => {
+    console.log(loggedIn)
+    console.log("qqqqqqqqqqqqqqqqqqqqqq")
     if (loggedIn === true) {
         return (
             <div>

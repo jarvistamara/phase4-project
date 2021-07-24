@@ -299,7 +299,7 @@ a:hover {
 }
 
 form {
-  background-color: #4d2323;
+  background-color: #2f374e;
   padding-top: 25px;
   color:white;
   font-weight: bold;
@@ -310,6 +310,6 @@ form {
 }
 
 .error {
-  color:crimson;
+  color:rgb(240, 0, 48);
   padding: 20px;
 }
