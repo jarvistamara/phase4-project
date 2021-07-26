@@ -22,15 +22,6 @@ const Book = (props) => {
         })
     }, [props.match.params.id])
 
-    // const deleteBook = (id) => {
-    //     const headerConfig = { method: 'DELETE', headers: { 'Content-Type': 'application/json'}}
-    //     fetch(`/books/${book.id}`, headerConfig)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //                 setBook('')
-    //     })
-    // }
-
     const editBook = (book) => {
         const headerConfig = { 
             method: 'PATCH', 
@@ -67,7 +58,6 @@ const Book = (props) => {
             <p>{book.description}</p>
             <div className='spacer'>
             {bookForm ? <BookEditForm editBook={editBook} book={book}/> : <button onClick={changeFormState}>EDIT</button>} 
-            {/* | <button book={book} onClick={deleteBook}>DELETE</button> */}
             </div>
         </div>
     )

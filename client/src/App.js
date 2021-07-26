@@ -19,7 +19,7 @@ function App(props) {
     fetch('/me')
     .then(res => { if (res.ok) { res.json() 
         .then(user => {
-          // setLoggedIn(true)
+          setLoggedIn(true)
           setUser(user)
         })
       }
